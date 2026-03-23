@@ -12,11 +12,41 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginTop="27dp"
-        android:layout_marginBottom="38dp"
         android:ems="10"
         android:hint="Ingrese cantidad a convertir"
         android:inputType="number|numberDecimal|numberSigned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/rgOpciones"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText">
+
+        <RadioButton
+            android:id="@+id/rbDolares"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Dólares" />
+
+        <RadioButton
+            android:id="@+id/rbSoles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Soles" />
+
+        <Button
+            android:id="@+id/btnConvertir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Convertir" />
+
+    </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
