@@ -5,66 +5,68 @@ import android.view.View
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var editTextCantidad: EditText
-    private lateinit var radioDolares: RadioButton
-    private lateinit var radioSoles: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-
         editTextCantidad = findViewById(R.id.editTextText)
-        radioDolares = findViewById(R.id.rbDolares)
-        radioSoles = findViewById(R.id.rbSoles)
     }
-
-    // Función principal de conversión
-    private fun convertirMoneda() {
-        val cantidadTexto = editTextCantidad.text.toString().trim()
-
-        if (cantidadTexto.isEmpty()) {
-            Toast.makeText(this, "Ingresa una cantidad", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        val cantidad = cantidadTexto.toFloatOrNull()
-        if (cantidad == null || cantidad <= 0) {
-            Toast.makeText(this, "Número no válido", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        val tipoCambio = 3.65f
-
-        if (radioDolares.isChecked) {
-            val resultado = cantidad * tipoCambio
-            val mensaje = "${"%.2f".format(cantidad)} USD son ${"%.2f".format(resultado)} Soles"
-            Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
-        } else if (radioSoles.isChecked) {
-            val resultado = cantidad / tipoCambio
-            val mensaje = "${"%.2f".format(cantidad)} Soles son ${"%.2f".format(resultado)} USD"
-            Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
-        }
-    }
-
 
     fun miClicManejador(view: View) {
-        if (view.id == R.id.btnConvertir) {
-            convertirMoneda()
+        val texto = editTextCantidad.text.toString()
+        if (texto.isEmpty()) {
+            Toast.makeText(this, "Ingresa un monto", Toast.LENGTH_SHORT).show()
+            return
         }
+
+        val cantidad = texto.toFloat()
+        var resultado = 0f
+        var monedaNombre = ""
+
+        // Lógica simple con los tipos de cambio actuales
+        when {
+            findViewById<RadioButton>(R.id.rbDolarASol).isChecked -> {
+                resultado = cantidad * 3.75f
+                monedaNombre = "Soles"
+            }
+            findViewById<RadioButton>(R.id.rbSolADolar).isChecked -> {
+                resultado = cantidad / 3.75f
+                monedaNombre = "Dólares"
+            }
+            findViewById<RadioButton>(R.id.rbEuroASol).isChecked -> {
+                resultado = cantidad * 4.05f
+                monedaNombre = "Soles"
+            }
+            findViewById<RadioButton>(R.id.rbLibraASol).isChecked -> {
+                resultado = cantidad * 4.75f
+                monedaNombre = "Soles"
+            }
+            findViewById<RadioButton>(R.id.rbRupiaASol).isChecked -> {
+                resultado = cantidad * 0.045f
+                monedaNombre = "Soles"
+            }
+            findViewById<RadioButton>(R.id.rbRealASol).isChecked -> {
+                resultado = cantidad * 0.75f
+                monedaNombre = "Soles"
+            }
+            findViewById<RadioButton>(R.id.rbPesoASol).isChecked -> {
+                resultado = cantidad * 0.22f
+                monedaNombre = "Soles"
+            }
+            findViewById<RadioButton>(R.id.rbYuanASol).isChecked -> {
+                resultado = cantidad * 0.52f
+                monedaNombre = "Soles"
+            }
+            findViewById<RadioButton>(R.id.rbYenASol).isChecked -> {
+                resultado = cantidad * 0.025f
+                monedaNombre = "Soles"
+            }
+        }
+
+        Toast.makeText(this, "Resultado: ${"%.2f".format(resultado)} $monedaNombre", Toast.LENGTH_LONG).show()
     }
 }

@@ -10,50 +10,45 @@
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="Ingrese cantidad a convertir"
+        android:layout_marginTop="20dp"
+        android:hint="Cantidad a convertir"
         android:inputType="numberDecimal"
-        android:backgroundTint="#E1F5FE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioGroup
-        android:id="@+id/rgOpciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnConvertir"
         app:layout_constraintTop_toBottomOf="@+id/editTextText">
 
-        <RadioButton
-            android:id="@+id/rbDolares"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Dólares a Soles" />
+        <RadioGroup
+            android:id="@+id/rgMonedas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/rbSoles"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Soles a Dólares" />
-    </RadioGroup>
+            <RadioButton android:id="@+id/rbDolarASol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dólar a Sol" android:checked="true"/>
+            <RadioButton android:id="@+id/rbSolADolar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sol a Dólar" />
+            <RadioButton android:id="@+id/rbEuroASol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Euro a Sol" />
+            <RadioButton android:id="@+id/rbLibraASol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Libra a Sol" />
+            <RadioButton android:id="@+id/rbRupiaASol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Rupia a Sol" />
+            <RadioButton android:id="@+id/rbRealASol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Real a Sol" />
+            <RadioButton android:id="@+id/rbPesoASol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Peso MX a Sol" />
+            <RadioButton android:id="@+id/rbYuanASol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yuan a Sol" />
+            <RadioButton android:id="@+id/rbYenASol" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Yen a Sol" />
+        </RadioGroup>
+    </ScrollView>
 
     <Button
         android:id="@+id/btnConvertir"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:backgroundTint="#4CAF50"
+        android:layout_marginBottom="20dp"
         android:onClick="miClicManejador"
         android:text="Convertir"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgOpciones" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
