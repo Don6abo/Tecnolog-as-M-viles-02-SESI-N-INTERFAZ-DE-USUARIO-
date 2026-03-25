@@ -1,4 +1,4 @@
-# Tecnolog-as-M-viles-02-SESI-N-INTERFAZ-DE-USUARIO-
+# Tecnologias Moviles-02-SESION-INTERFAZ-DE-USUARIO-
 <img width="886" height="640" alt="image" src="https://github.com/user-attachments/assets/15f04781-2635-4d0d-89db-51d4eb2243fa" />
 <img width="886" height="639" alt="image" src="https://github.com/user-attachments/assets/bb14b25f-234f-4b3e-a555-c2cca9bb456c" />
 <img width="886" height="486" alt="image" src="https://github.com/user-attachments/assets/e0dc5098-0826-4ec1-8a71-83092ba24835" />
