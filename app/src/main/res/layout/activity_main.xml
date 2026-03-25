@@ -5,23 +5,25 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/editTextText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Ingrese cantidad a convertir"
-        android:inputType="number|numberDecimal|numberSigned"
+        android:inputType="numberDecimal"
+        android:backgroundTint="#E1F5FE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
         android:id="@+id/rgOpciones"
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,20 +35,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Dólares" />
+            android:text="Dólares a Soles" />
 
         <RadioButton
             android:id="@+id/rbSoles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Soles" />
-
-        <Button
-            android:id="@+id/btnConvertir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Convertir" />
-
+            android:text="Soles a Dólares" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/btnConvertir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#4CAF50"
+        android:onClick="miClicManejador"
+        android:text="Convertir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgOpciones" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
